@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AgroBR - Assistente Agrícola Inteligente via WhatsApp">
+    <title>AgroBR - Seu Agrônomo no WhatsApp</title>
+    
+    <!-- React -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fade-in 0.3s ease-out;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #16a34a;
+            border-radius: 3px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #15803d;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+
+        // Componente principal do AgroBR
+        const AgroBRApp = () => {
+            const [messages, setMessages] = useState([
+                {
+                    type: 'bot',
+                    text: 'Olá! 👋 Sou o AgroBR, seu assistente agrícola inteligente.\n\n📍 Detectei sua localização: *Planaltina, DF*\n🌾 Cultura principal: *Soja*\n📏 Área: *150 hectares*\n\nComo posso ajudar você hoje?',
+                    time: '08:30',
+                    avatar: '🤖'
+                }
+            ]);
+            const [inputText, setInputText] = useState('');
+            const [activeMenu, setActiveMenu] = useState('main');
+            const [isTyping, setIsTyping] = useState(false);
+            const [showWeatherAlert, setShowWeatherAlert] = useState(true);
+            const messagesEndRef = useRef(null);
+
+            const scrollToBottom = () => {
+                messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+            };
+
+            useEffect(() => {
+                scrollToBottom();
+            }, [messages]);
+
+            const mainMenuOptions = [
+                { id: 'weather', label: 'Clima & Previsão', color: 'bg-blue-500', desc: 'Previsão 15 dias' },
+                { id: 'pest', label: 'Pragas & Doenças', color: 'bg-red-500', desc: 'Diagnóstico IA' },
+                { id: 'crop', label: 'Manejo de Cultura', color: 'bg-green-500', desc: 'Recomendações' },
+                { id: 'market', label: 'Preços & Mercado', color: 'bg-yellow-500', desc: 'Tempo real' },
+                { id: 'inputs', label: 'Comprar Insumos', color: 'bg-purple-500', desc: 'Entrega rápida' },
+                { id: 'expert', label: 'Especialista', color: 'bg-indigo-500', desc: 'Consultoria' }
+            ];
+
+            const addMessage = (type, text, avatar = null) => {
+                const newMessage = {
+                    type,
+                    text,
+                    time: new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }),
+                    avatar: avatar || (type === 'bot' ? '🤖' : '👤')
+                };
+                setMessages(prev => [...prev, newMessage]);
+            };
+
+            const handleSendMessage = () => {
+                if (!inputText.trim()) return;
+                addMessage('user', inputText);
+                setInputText('');
+                
+                setIsTyping(true);
+                setTimeout(() => {
+                    setIsTyping(false);
+                    addMessage('bot', 'Recebi sua mensagem! Esta é uma demonstração interativa. Na versão completa, você terá respostas personalizadas com IA. 🚀');
+                }, 1500);
+            };
+
+            const handleOptionClick = (optionId) => {
+                const option = mainMenuOptions.find(o => o.id === optionId);
+                addMessage('user', option.label);
+                
+                setIsTyping(true);
+                setTimeout(() => {
+                    setIsTyping(false);
+                    
+                    const responses = {
+                        weather: '🌤️ *PREVISÃO CLIMÁTICA*\n📍 Planaltina, DF\n\n*HOJE*\n🌡️ 18°C - 29°C\n💧 Chuva: 70% (15-25mm)\n💨 Vento: 15 km/h\n\n*PRÓXIMOS 7 DIAS*\nAmanhã: ⛈️ Chuva forte\n09/10: 🌦️ Parcialmente nublado\n10/10: ☀️ Ensolarado\n\n⚠️ Evite aplicação hoje!',
+                        pest: '🐛 *DIAGNÓSTICO IA*\n\nEnvie uma foto da planta e identificarei:\n✓ Ferrugem asiática\n✓ Lagarta\n✓ Percevejo\n✓ E mais!\n\n96% de acurácia',
+                        crop: '🌱 *MANEJO PERSONALIZADO*\n\nSua soja está em V6\n\n💊 Recomendação:\nUreia: 150 kg/ha\nAplicar nos próximos 3 dias\n\nPrevisão colheita: Jan/2026\nProdutividade: 58 sc/ha',
+                        market: '💰 *PREÇOS SOJA*\n\nBrasília: R$ 142,50/sc ↗️ +2,3%\nChicago: US$ 10.85/bu\n\n📈 Tendência ALTA\n🎯 Recomendação: Fixar 30% agora',
+                        inputs: '🛒 *LOJA DE INSUMOS*\n\n🌾 Soja BRS 388: R$ 185/sc\n💊 Ureia: R$ 2.800/ton\n🛡️ Fungicida: R$ 87/L\n\n🚚 Entrega em 48h\n💳 PIX, Boleto, Cartão',
+                        expert: '👨‍🌾 *ESPECIALISTAS*\n\nDr. João Silva\n⭐ 4.9/5 (187 consultas)\n💰 R$ 150/hora\n📞 Disponível AGORA\n\nDeseja agendar?'
+                    };
+                    
+                    addMessage('bot', responses[optionId] || 'Funcionalidade em desenvolvimento!');
+                }, 1500);
+            };
+
+            return (
+                <div className="flex flex-col h-screen max-w-md mx-auto bg-gray-50">
+                    {/* Header */}
+                    <div className="bg-gradient-to-r from-green-600 to-green-700 text-white p-4 shadow-xl">
+                        <div className="flex items-center gap-3">
+                            <div className="relative">
+                                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg text-3xl">
+                                    🌱
+                                </div>
+                                <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white"></div>
+                            </div>
+                            <div className="flex-1">
+                                <h1 className="font-bold text-lg">AgroBR Assistant</h1>
+                                <p className="text-xs text-green-100 flex items-center gap-1">
+                                    <span className="w-2 h-2 bg-green-300 rounded-full animate-pulse"></span>
+                                    Demo Interativa • IA Ativa
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Alert */}
+                    {showWeatherAlert && (
+                        <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 flex items-start gap-2">
+                            <span className="text-yellow-600">⚠️</span>
+                            <div className="flex-1 text-sm">
+                                <p className="font-semibold text-yellow-800">Alerta Climático</p>
+                                <p className="text-yellow-700">Chuvas previstas. Evite aplicações.</p>
+                            </div>
+                            <button onClick={() => setShowWeatherAlert(false)} className="text-yellow-600">✕</button>
+                        </div>
+                    )}
+
+                    {/* Messages */}
+                    <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-gradient-to-b from-gray-50 to-white">
+                        {messages.map((msg, idx) => (
+                            <div key={idx} className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'} animate-fade-in`}>
+                                <div className={`max-w-[85%] ${msg.type === 'user' ? '' : 'flex gap-2'}`}>
+                                    {msg.type === 'bot' && (
+                                        <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 text-lg">
+                                            {msg.avatar}
+                                        </div>
+                                    )}
+                                    <div>
+                                        <div className={`rounded-2xl p-3 shadow-md ${
+                                            msg.type === 'user' 
+                                                ? 'bg-green-500 text-white rounded-br-none' 
+                                                : 'bg-white text-gray-800 rounded-bl-none border border-gray-200'
+                                        }`}>
+                                            <p className="text-sm whitespace-pre-line leading-relaxed">{msg.text}</p>
+                                            <p className={`text-xs mt-1 ${msg.type === 'user' ? 'text-green-100' : 'text-gray-400'}`}>
+                                                {msg.time}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+
+                        {/* Typing Indicator */}
+                        {isTyping && (
+                            <div className="flex justify-start">
+                                <div className="flex gap-2">
+                                    <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-lg">🤖</div>
+                                    <div className="bg-white rounded-2xl rounded-bl-none p-4 shadow-md border border-gray-200">
+                                        <div className="flex gap-1">
+                                            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
+                                            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                                            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Menu */}
+                        {activeMenu === 'main' && (
+                            <div className="bg-white rounded-2xl p-4 shadow-xl border border-gray-200 animate-fade-in">
+                                <p className="text-sm font-bold text-gray-700 mb-3">🚀 Menu Rápido:</p>
+                                <div className="grid grid-cols-2 gap-3">
+                                    {mainMenuOptions.map(option => (
+                                        <button
+                                            key={option.id}
+                                            onClick={() => handleOptionClick(option.id)}
+                                            className={`${option.color} text-white rounded-xl p-4 flex flex-col items-center gap-2 hover:scale-105 transition-transform shadow-lg`}
+                                        >
+                                            <span className="text-xs font-bold text-center leading-tight">{option.label}</span>
+                                            <span className="text-xs opacity-90">{option.desc}</span>
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        <div ref={messagesEndRef} />
+                    </div>
+
+                    {/* Input */}
+                    <div className="bg-white border-t border-gray-200 p-3 shadow-lg">
+                        <div className="flex items-center gap-2">
+                            <button className="text-gray-500 hover:text-green-600 transition-colors p-2 hover:bg-green-50 rounded-full">
+                                📸
+                            </button>
+                            <input
+                                type="text"
+                                value={inputText}
+                                onChange={(e) => setInputText(e.target.value)}
+                                onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+                                placeholder="Digite sua mensagem..."
+                                className="flex-1 bg-gray-100 rounded-full px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:bg-white transition-all"
+                            />
+                            <button
+                                onClick={handleSendMessage}
+                                className="bg-gradient-to-r from-green-600 to-green-700 text-white rounded-full p-3 hover:from-green-700 hover:to-green-800 transition-all shadow-lg hover:shadow-xl"
+                            >
+                                ➤
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Footer */}
+                    <div className="bg-gradient-to-r from-green-600 to-green-700 text-white text-center py-2 text-xs font-medium">
+                        💬 Funciona via WhatsApp • Sem instalar nada • Grátis para testar
+                    </div>
+                </div>
+            );
+        };
+
+        // Render
+        ReactDOM.render(<AgroBRApp />, document.getElementById('root'));
+    </script>
+
+    <!-- Info Footer -->
+    <div style="position: fixed; bottom: 20px; right: 20px; background: white; padding: 15px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); max-width: 320px; z-index: 1000;">
+        <p style="margin: 0; font-size: 13px; color: #374151; line-height: 1.5;">
+            <strong style="color: #16a34a;">📱 AgroBR - Demo Interativa</strong><br>
+            <span style="font-size: 12px;">Este é um protótipo funcional. Para informações sobre investimento ou parceria:</span><br>
+            <a href="mailto:contato@agrobr.com.br" style="color: #16a34a; text-decoration: none; font-weight: 600;">📧 contato@agrobr.com.br</a><br>
+            <a href="https://wa.me/5561999999999" style="color: #16a34a; text-decoration: none; font-weight: 600;">💬 WhatsApp Demo</a>
+        </p>
+    </div>
+</body>
+</html>
