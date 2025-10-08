@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroBR - Go-to-Market Strategy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        }
+        .section {
+            scroll-margin-top: 80px;
+        }
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #10b981, #3b82f6);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-8">
+        <div class="max-w-6xl mx-auto px-6">
+            <a href="index.html" class="text-white hover:underline mb-2 inline-block text-sm">← Voltar ao site</a>
+            <div class="flex items-center gap-4 mb-4">
+                <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-4xl shadow-lg">🚀</div>
+                <div>
+                    <h1 class="text-4xl font-bold">Estratégia Go-to-Market</h1>
+                    <p class="text-blue-100">Conquista do Mercado Agrícola Brasileiro</p>
+                </div>
+            </div>
+            <div class="flex gap-4 text-sm">
+                <span class="bg-white/20 px-3 py-1 rounded-full">📍 Brasil</span>
+                <span class="bg-white/20 px-3 py-1 rounded-full">⏱️ 36 meses</span>
+                <span class="bg-white/20 px-3 py-1 rounded-full">🎯 150k usuários</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white">
+        <div class="max-w-6xl mx-auto px-6 py-3">
+            <div class="flex gap-4 overflow-x-auto text-sm font-medium">
+                <a href="#visao" class="text-gray-600 hover:text-blue-600 whitespace-nowrap">Visão Geral</a>
+                <a href="#personas" class="text-gray-600 hover:text-blue-600 whitespace-nowrap">Personas</a>
+                <a href="#fase1" class="text-gray-600 hover:text-blue-600 whitespace-nowrap">Fase 1</a>
+                <a href="#fase2" class="text-gray-600 hover:text-blue-600 whitespace-nowrap">Fase 2</a>
+                <a href="#fase3" class="text-gray-600 hover:text-blue-600 whitespace-nowrap">Fase 3</a>
+                <a href="#kpis" class="text-gray-600 hover:text-blue-600 whitespace-nowrap">KPIs</a>
+                <a href="#acao" class="text-gray-600 hover:text-blue-600 whitespace-nowrap">Ação</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main class="max-w-6xl mx-auto px-6 py-12">
+        
+        <!-- Visão Geral -->
+        <section id="visao" class="section mb-16">
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">🎯 Visão Geral da Estratégia</h2>
+                
+                <p class="text-xl text-gray-700 mb-8">Conquista sistemática do mercado brasileiro em 3 fases progressivas</p>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-200 rounded-xl p-6">
+                        <div class="text-4xl mb-3">🌱</div>
+                        <h3 class="text-2xl font-bold text-green-700 mb-3">FASE 1: Validação</h3>
+                        <div class="space-y-2 text-sm">
+                            <p class="text-gray-700"><strong>Período:</strong> Meses 1-6</p>
+                            <p class="text-gray-700"><strong>Geografia:</strong> Planaltina-DF</p>
+                            <p class="text-gray-700"><strong>Meta:</strong> 1.000 usuários</p>
+                            <p class="text-gray-700"><strong>Receita:</strong> R$ 50k MRR</p>
+                            <p class="text-green-700 font-semibold mt-3">✓ Provar PMF, refinar produto</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200 rounded-xl p-6">
+                        <div class="text-4xl mb-3">📈</div>
+                        <h3 class="text-2xl font-bold text-blue-700 mb-3">FASE 2: Expansão</h3>
+                        <div class="space-y-2 text-sm">
+                            <p class="text-gray-700"><strong>Período:</strong> Meses 7-18</p>
+                            <p class="text-gray-700"><strong>Geografia:</strong> Centro-Oeste + BA/MG</p>
+                            <p class="text-gray-700"><strong>Meta:</strong> 25.000 usuários</p>
+                            <p class="text-gray-700"><strong>Receita:</strong> R$ 1,5M MRR</p>
+                            <p class="text-blue-700 font-semibold mt-3">✓ Escalar canais, validar economics</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 border-2 border-purple-200 rounded-xl p-6">
+                        <div class="text-4xl mb-3">🏆</div>
+                        <h3 class="text-2xl font-bold text-purple-700 mb-3">FASE 3: Dominância</h3>
+                        <div class="space-y-2 text-sm">
+                            <p class="text-gray-700"><strong>Período:</strong> Meses 19-36</p>
+                            <p class="text-gray-700"><strong>Geografia:</strong> Brasil inteiro</p>
+                            <p class="text-gray-700"><strong>Meta:</strong> 150.000 usuários</p>
+                            <p class="text-gray-700"><strong>Receita:</strong> R$ 8M MRR</p>
+                            <p class="text-purple-700 font-semibold mt-3">✓ Liderança, eficiência operacional</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personas -->
+        <section id="personas" class="section mb-16">
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">👥 Segmentação & Personas</h2>
+                
+                <div class="space-y-6">
+                    <!-- Persona 1 -->
+                    <div class="border-l-4 border-green-500 bg-green-50 rounded-r-xl p-6">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+                                A
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">Pequeno Produtor Progressista</h3>
+                                <p class="text-green-600 font-semibold">40% do foco • Área: 20-100 ha</p>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2">Demografia</h4>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Idade: 35-55 anos</li>
+                                    <li>• Escolaridade: Fundamental/Médio</li>
+                                    <li>• Culturas: Soja, milho, feijão</li>
+                                    <li>• Renda: R$ 150-500k/ano</li>
+                                    <li>• Smartphone básico (Android)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2">Dores Principais</h4>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Perda 20-30% por decisões erradas</li>
+                                    <li>• Paga caro por insumos</li>
+                                    <li>• Sem acesso a agrônomo (R$ 300/h)</li>
+                                    <li>• Erra timing de aplicação</li>
+                                    <li>• Vende mal (momento errado)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4 bg-white rounded-lg p-4">
+                            <p class="font-bold text-green-700">💡 Proposta de Valor:</p>
+                            <p class="text-gray-700">"Agrônomo no bolso por R$ 49/mês. Economize R$ 15.000/safra com decisões certas."</p>
+                        </div>
+                    </div>
+
+                    <!-- Persona 2 -->
+                    <div class="border-l-4 border-blue-500 bg-blue-50 rounded-r-xl p-6">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+                                B
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">Médio Produtor Tech-Friendly</h3>
+                                <p class="text-blue-600 font-semibold">35% do foco • Área: 100-500 ha</p>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2">Demografia</h4>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Idade: 30-50 anos</li>
+                                    <li>• Escolaridade: Superior (Agronomia)</li>
+                                    <li>• Culturas: Soja, milho, café</li>
+                                    <li>• Renda: R$ 500k-3M/ano</li>
+                                    <li>• Já usa alguma tecnologia</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2">Dores Principais</h4>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Apps existentes muito complexos</li>
+                                    <li>• Muitas ferramentas diferentes</li>
+                                    <li>• Falta integração entre sistemas</li>
+                                    <li>• Consultoria cara e esporádica</li>
+                                    <li>• Precisa decisões rápidas 24/7</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4 bg-white rounded-lg p-4">
+                            <p class="font-bold text-blue-700">💡 Proposta de Valor:</p>
+                            <p class="text-gray-700">"Tudo em um só lugar, no app que você já usa. IA + especialistas on-demand."</p>
+                        </div>
+                    </div>
+
+                    <!-- Persona 3 -->
+                    <div class="border-l-4 border-purple-500 bg-purple-50 rounded-r-xl p-6">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+                                C
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">Cooperativas & Associações</h3>
+                                <p class="text-purple-600 font-semibold">25% do foco • B2B</p>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2">Perfil</h4>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• 200-5.000 cooperados</li>
+                                    <li>• Faturamento: R$ 50-500M/ano</li>
+                                    <li>• Regiões: Centro-Oeste, Sul, Sudeste</li>
+                                    <li>• Buscam digitalização</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2">Dores Principais</h4>
+                                <ul class="text-sm text-gray-700 space-y-1">
+                                    <li>• Difícil engajar cooperados digitalmente</li>
+                                    <li>• Assistência técnica cara e limitada</li>
+                                    <li>• Falta dados sobre performance</li>
+                                    <li>• Competição com traders</li>
+                                    <li>• Precisam diferenciais para cooperados</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4 bg-white rounded-lg p-4">
+                            <p class="font-bold text-purple-700">💡 Proposta de Valor:</p>
+                            <p class="text-gray-700">"Plataforma white-label para digitalizar sua cooperativa. Mais engajamento, dados em tempo real."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fase 1 -->
+        <section id="fase1" class="section mb-16">
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white text-xl font-bold">1</div>
+                    <h2 class="text-4xl font-bold text-gray-900">FASE 1: Validação (Meses 1-6)</h2>
+                </div>
+
+                <div class="bg-green-50 rounded-xl p-6 mb-8 border-l-4 border-green-500">
+                    <div class="grid md:grid-cols-4 gap-4 text-center">
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Meta</p>
+                            <p class="text-3xl font-bold text-green-600">1.000</p>
+                            <p class="text-xs text-gray-600">usuários ativos</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Receita</p>
+                            <p class="text-3xl font-bold text-green-600">R$ 50k</p>
+                            <p class="text-xs text-gray-600">MRR</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Budget</p>
+                            <p class="text-3xl font-bold text-green-600">R$ 180k</p>
+                            <p class="text-xs text-gray-600">total (R$ 30k/mês)</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Geografia</p>
+                            <p class="text-2xl font-bold text-green-600">Planaltina</p>
+                            <p class="text-xs text-gray-600">DF + 50km</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Canais de Aquisição</h3>
+                <div class="space-y-4">
+                    <div class="border-l-4 border-blue-500 bg-blue-50 rounded-r-lg p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 class="text-xl font-bold text-gray-900">1. Parcerias com Cooperativas</h4>
+                            <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm font-bold">40% budget</span>
+                        </div>
+                        <p class="text-gray-700 mb-3"><strong>Estratégia:</strong> Fechar 3 cooperativas piloto • 6 meses GRATUITO para 100 cooperados cada</p>
+                        <div class="grid md:grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <p class="font-semibold text-gray-900 mb-2">Táticas:</p>
+                                <ul class="text-gray-700 space-y-1">
+                                    <li>✓ Apresentação em assembleia</li>
+                                    <li>✓ SMS blast para cooperados</li>
+                                    <li>✓ Posters na loja física</li>
+                                    <li>✓ Treinamento diretoria</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-900 mb-2">KPIs:</p>
+                                <ul class="text-gray-700 space-y-1">
+                                    <li>• 40% instalarem</li>
+                                    <li>• 30% usarem ativamente</li>
+                                    <li>• NPS > 50</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-l-4 border-green-500 bg-green-50 rounded-r-lg p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 class="text-xl font-bold text-gray-900">2. Embaixadores Rurais</h4>
+                            <span class="bg-green-200 text-green-800 px-3 py-1 rounded-full text-sm font-bold">30% budget</span>
+                        </div>
+                        <p class="text-gray-700 mb-3"><strong>Modelo:</strong> 2 embaixadores locais • Salário R$ 2k + comissão R$ 30/usuário ativo</p>
+                        <div class="grid md:grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <p class="font-semibold text-gray-900 mb-2">Perfil:</p>
+                                <ul class="text-gray-700 space-y-1">
+                                    <li>✓ Ex-vendedor de insumos OU agrônomo</li>
+                                    <li>✓ Bem conectado na comunidade</li>
+                                    <li>✓ Carismático, confiável</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-900 mb-2">Atividades:</p>
+                                <ul class="text-gray-700 space-y-1">
+                                    <li>• 10 visitas/semana a fazendas</li>
+                                    <li>• 2 mini field days/mês</li>
+                                    <li>• Suporte onboarding</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-l-4 border-purple-500 bg-purple-50 rounded-r-lg p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 class="text-xl font-bold text-gray-900">3. Marketing Digital Focado</h4>
+                            <span class="bg-purple-200 text-purple-800 px-3 py-1 rounded-full text-sm font-bold">20% budget</span>
+                        </div>
+                        <p class="text-gray-700 mb-3"><strong>Investment:</strong> R$ 1.000/dia Facebook/Instagram Ads + YouTube orgânico</p>
+                        <div class="text-sm text-gray-700">
+                            <p class="mb-2"><strong>Público:</strong> Homens 30-60 anos, interesse em agricultura, raio 50km Planaltina</p>
+                            <p><strong>Meta CPA:</strong> < R$ 80 por usuário ativo</p>
+                        </div>
+                    </div>
+
+                    <div class="border-l-4 border-yellow-500 bg-yellow-50 rounded-r-lg p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h4 class="text-xl font-bold text-gray-900">4. WhatsApp Marketing</h4>
+                            <span class="bg-yellow-200 text-yellow-800 px-3 py-1 rounded-full text-sm font-bold">10% budget</span>
+                        </div>
+                        <p class="text-gray-700 mb-2"><strong>Estratégia:</strong> Participar de 20 grupos existentes + listas broadcast</p>
+                        <p class="text-sm text-gray-600">90% valor (dicas, alertas) • 10% soft sell • 2-3 mensagens/semana</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fase 2 -->
+        <section id="fase2" class="section mb-16">
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white text-xl font-bold">2</div>
+                    <h2 class="text-4xl font-bold text-gray-900">FASE 2: Expansão Regional (Meses 7-18)</h2>
+                </div>
+
+                <div class="bg-blue-50 rounded-xl p-6 mb-8 border-l-4 border-blue-500">
+                    <div class="grid md:grid-cols-4 gap-4 text-center">
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Meta</p>
+                            <p class="text-3xl font-bold text-blue-600">25.000</p>
+                            <p class="text-xs text-gray-600">usuários ativos</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Receita</p>
+                            <p class="text-3xl font-bold text-blue-600">R$ 1,5M</p>
+                            <p class="text-xs text-gray-600">MRR</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Budget</p>
+                            <p class="text-3xl font-bold text-blue-600">R$ 2,16M</p>
+                            <p class="text-xs text-gray-600">total (R$ 180k/mês)</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Geografia</p>
+                            <p class="text-xl font-bold text-blue-600">GO, MT, MS, BA, MG</p>
+                            <p class="text-xs text-gray-600">Centro-Oeste + Oeste BA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Evolução da Estratégia</h3>
+                <div class="space-y-4">
+                    <div class="bg-gradient-to-r from-green-50 to-green-100 rounded-lg p-6 border-l-4 border-green-500">
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">1. Escalar Embaixadores (35% budget)</h4>
+                        <div class="grid md:grid-cols-3 gap-4 text-sm">
+                            <div>
+                                <p class="font-semibold mb-2">Mês 7:</p>
+                                <p class="text-gray-700">5 embaixadores</p>
+                            </div>
+                            <div>
+                                <p class="font-semibold mb-2">Mês 12:</p>
+                                <p class="text-gray-700">15 embaixadores</p>
+                            </div>
+                            <div>
+                                <p class="font-semibold mb-2">Mês 18:</p>
+                                <p class="text-gray-700">25 embaixadores</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 bg-white rounded p-4">
+                            <p class="text-sm text-gray-700"><strong>Regiões:</strong> Rio Verde (GO), Sorriso (MT), Barreiras (BA), Uberaba (MG)</p>
+                            <p class="text-sm text-gray-700 mt-2"><strong>Inovação:</strong> Criar "líder regional" a cada 5 embaixadores + gamificação</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-6 border-l-4 border-blue-500">
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">2. Parcerias Estratégicas (25% budget)</h4>
+                        <div class="space-y-3">
+                            <div class="bg-white rounded p-4">
+                                <p class="font-bold text-gray-900 mb-1">🤝 20 Cooperativas</p>
+                                <p class="text-sm text-gray-700">Piloto gratuito → conversão licenciamento R$ 60-120k/ano</p>
+                            </div>
+                            <div class="bg-white rounded p-4">
+                                <p class="font-bold text-gray-900 mb-1">🏪 15 Revendas de Insumos</p>
+                                <p class="text-sm text-gray-700">Integração marketplace • Comissão 8% AgroBR</p>
+                            </div>
+                            <div class="bg-white rounded p-4">
+                                <p class="font-bold text-gray-900 mb-1">🚜 John Deere / Case / New Holland</p>
+                                <p class="text-sm text-gray-700">Dados de máquinas → melhor recomendação</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg p-6 border-l-4 border-purple-500">
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">3. Marketing Multicanal (30% budget)</h4>
+                        <div class="grid md:grid-cols-2 gap-4 text-sm">
+                            <div class="bg-white rounded p-4">
+                                <p class="font-bold mb-2">Performance Digital (45%)</p>
+                                <p class="text-gray-700">• Facebook/Instagram: R$ 4.500/dia</p>
+                                <p class="text-gray-700">• Google Ads: R$ 1.500/dia</p>
+                                <p class="text-gray-700">• YouTube Ads: R$ 500/dia</p>
+                            </div>
+                            <div class="bg-white rounded p-4">
+                                <p class="font-bold mb-2">Rádio Rural (20%)</p>
+                                <p class="text-gray-700">• 10 rádios AM regionais</p>
+                                <p class="text-gray-700">• 4 spots/dia, 6 dias/semana</p>
+                                <p class="text-gray-700">• 78% agricultores ouvem no trator</p>
+                            </div>
+                            <div class="bg-white rounded p-4">
+                                <p class="font-bold mb-2">Influencers (15%)</p>
+                                <p class="text-gray-700">• 5 micro-influencers agro</p>
+                                <p class="text-gray-700">• Integration nativa</p>
+                                <p class="text-gray-700">• R$ 5-10k por integration</p>
+                            </div>
+                            <div class="bg-white rounded p-4">
+                                <p class="font-bold mb-2">Eventos (20%)</p>
+                                <p class="text-gray-700">• Agrishow, Bahia Farm Show</p>
+                                <p class="text-gray-700">• Stands 30-50m²</p>
+                                <p class="text-gray-700">• Meta: 500 cadastros/feira</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-lg p-6 border-l-4 border-yellow-500">
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">4. Vendas Estruturadas (10% budget)</h4>
+                        <div class="bg-white rounded p-4">
+                            <p class="text-gray-700 mb-2"><strong>Time:</strong> 1 Head + 3 AEs + 2 SDRs</p>
+                            <p class="text-gray-700 mb-2"><strong>Meta AE:</strong> 2 cooperativas/mês (R$ 80k/ano cada)</p>
+                            <p class="text-gray-700"><strong>Conversão:</strong> 60% piloto → pago</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fase 3 -->
+        <section id="fase3" class="section mb-16">
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white text-xl font-bold">3</div>
+                    <h2 class="text-4xl font-bold text-gray-900">FASE 3: Escala Nacional (Meses 19-36)</h2>
+                </div>
+
+                <div class="bg-purple-50 rounded-xl p-6 mb-8 border-l-4 border-purple-500">
+                    <div class="grid md:grid-cols-4 gap-4 text-center">
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Meta</p>
+                            <p class="text-3xl font-bold text-purple-600">150.000</p>
+                            <p class="text-xs text-gray-600">usuários ativos</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Receita</p>
+                            <p class="text-3xl font-bold text-purple-600">R$ 8M</p>
+                            <p class="text-xs text-gray-600">MRR</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Budget</p>
+                            <p class="text-3xl font-bold text-purple-600">R$ 8,1M</p>
+                            <p class="text-xs text-gray-600">total (R$ 450k/mês)</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600 mb-1">Geografia</p>
+                            <p class="text-xl font-bold text-purple-600">BRASIL</p>
+                            <p class="text-xs text-gray-600">Cobertura nacional</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Novas Iniciativas</h3>
+                <div class="space-y-4">
+                    <div class="bg-gradient-to-r from-red-50 to-red-100 rounded-lg p-6 border-l-4 border-red-500">
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">1. Marketing de Massa (40% budget)</h4>
+                        <div class="space-y-3">
+                            <div class="bg-white rounded p-4">
+                                <p class="font-bold text-gray-900 mb-2">📺 TV Regional</p>
+                                <p class="text-sm text-gray-700">• Globo Rural (domingo manhã): 8 inserções/mês</p>
+                                <p class="text-sm text-gray-700">• Bom Dia Campo (afiliadas): 20 inserções/mês</p>
+                                <p class="text-sm text-gray-700">• Investment: R$ 80k/mês</p>
+                            </div>
+                            <div class="bg-white rounded p-4">
+                                <p class="font-bold text-gray-900 mb-2">📰 PR & Mídia Especializada</p>
+                                <p class="text-sm text-gray-700">• Cases em Globo Rural, Cultivar, DBO</p>
+                                <p class="text-sm text-gray-700">• Meta: 1 matéria grande/mês</p>
+                            </div>
+                            <div class="bg-white rounded p-4">
+                                <p class="font-bold text-gray-900 mb-2">🎪 Patrocínios Estratégicos</p>
+                                <p class="text-sm text-gray-700">• Rodeios, campeonatos rurais</p>
+                                <p class="text-sm text-gray-700">• R$ 450k/ano total</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-indigo-50 to-indigo-100 rounded-lg p-6 border-l-4 border-indigo-500">
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">2. Parcerias Institucionais (15% budget)</h4>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-white rounded p-4">
+                                <p class="font-bold text-gray-900 mb-2">🎓 SENAR</p>
+                                <p class="text-sm text-gray-700">AgroBR em cursos de capacitação</p>
+                                <p class="text-sm text-gray-700">Acesso: 2M alunos/ano</p>
+                            </div>
+                            <div class="bg-white rounded p-4">
+                                <p class="font-bold text-gray-900 mb-2">🏦 Banco do Brasil</p>
+                                <p class="text-sm text-gray-700">Bundle: Crédito + AgroBR</p>
+                                <p class="text-sm text-gray-700">Banco paga R$ 300/ano</p>
+                            </div>
+                            <div class="bg-white rounded p-4">
+                                <p class="font-bold text-gray-900 mb-2">🏛️ MAPA</p>
+                                <p class="text-sm text-gray-700">Programa Digitalização</p>
+                                <p class="text-sm text-gray-700">Credibilidade institucional</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-green-50 to-green-100 rounded-lg p-6 border-l-4 border-green-500">
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">3. Ecossistema & Integrações (10% budget)</h4>
+                        <div class="space-y-3">
+                            <div class="bg-white rounded p-4">
+                                <p class="font-bold text-gray-900 mb-2">🔌 API Aberta</p>
+                                <p class="text-sm text-gray-700">Desenvolvedores podem criar apps em cima da nossa plataforma</p>
+                            </div>
+                            <div class="bg-white rounded p-4">
+                                <p class="font-bold text-gray-900 mb-2">💻 Integração ERPs</p>
+                                <p class="text-sm text-gray-700">Aegro, Agriness, Farm Business - dados fluem entre sistemas</p>
+                            </div>
+                            <div class="bg-white rounded p-4">
+                                <p class="font-bold text-gray-900 mb-2">📡 Hardware IoT</p>
+                                <p class="text-sm text-gray-700">Sensores umidade, estações clima, drones → alertas WhatsApp</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KPIs -->
+        <section id="kpis" class="section mb-16">
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">📊 KPIs & Métricas de Sucesso</h2>
+                
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-r from-green-500 to-green-600 rounded-xl p-8 text-white">
+                        <h3 class="text-2xl font-bold mb-6">Métricas Norte (North Star Metrics)</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <p class="text-green-100 mb-2">Usuários Ativos Mensais (MAU)</p>
+                                <p class="text-sm text-green-100 mb-4">Enviou 3+ mensagens no mês</p>
+                                <div class="bg-white/20 rounded-lg p-4">
+                                    <p class="text-sm">Fase 1: <span class="text-2xl font-bold">1.000</span></p>
+                                    <p class="text-sm">Fase 2: <span class="text-2xl font-bold">25.000</span></p>
+                                    <p class="text-sm">Fase 3: <span class="text-2xl font-bold">150.000</span></p>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-green-100 mb-2">Monthly Recurring Revenue (MRR)</p>
+                                <p class="text-sm text-green-100 mb-4">Receita recorrente mensal</p>
+                                <div class="bg-white/20 rounded-lg p-4">
+                                    <p class="text-sm">Fase 1: <span class="text-2xl font-bold">R$ 50k</span></p>
+                                    <p class="text-sm">Fase 2: <span class="text-2xl font-bold">R$ 1,5M</span></p>
+                                    <p class="text-sm">Fase 3: <span class="text-2xl font-bold">R$ 8M</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-blue-50 rounded-lg p-6 border-l-4 border-blue-500">
+                            <h4 class="font-bold text-gray-900 mb-3">Aquisição</h4>
+                            <div class="space-y-2 text-sm">
+                                <p className="text-gray-700">• CAC: <strong>< R$ 120</strong></p>
+                                <p className="text-gray-700">• CAC Payback: <strong>< 10 meses</strong></p>
+                                <p className="text-gray-700">• Taxa ativação: <strong>> 40%</strong></p>
+                            </div>
+                        </div>
+                        <div class="bg-yellow-50 rounded-lg p-6 border-l-4 border-yellow-500">
+                            <h4 class="font-bold text-gray-900 mb-3">Engajamento</h4>
+                            <div class="space-y-2 text-sm">
+                                <p className="text-gray-700">• DAU/MAU: <strong>> 0,35</strong></p>
+                                <p className="text-gray-700">• Mensagens/mês: <strong>> 15</strong></p>
+                                <p className="text-gray-700">• Sessões/semana: <strong>> 2,5</strong></p>
+                            </div>
+                        </div>
+                        <div class="bg-green-50 rounded-lg p-6 border-l-4 border-green-500">
+                            <h4 class="font-bold text-gray-900 mb-3">Receita</h4>
+                            <div class="space-y-2 text-sm">
+                                <p className="text-gray-700">• Conv. free→paid: <strong>12%</strong></p>
+                                <p className="text-gray-700">• LTV/CAC: <strong>> 3:1</strong></p>
+                                <p className="text-gray-700">• Churn mensal: <strong>< 5%</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ação Imediata -->
+        <section id="acao" class="section mb-16">
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">✅ Checklist de Ação Imediata</h2>
+                
+                <div class="space-y-6">
+                    <div class="bg-red-50 rounded-xl p-6 border-l-4 border-red-500">
+                        <h3 class="text-2xl font-bold text-red-700 mb-4">🔥 Próximos 7 Dias</h3>
+                        <div class="space-y-2 text-gray-700">
+                            <label class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1">
+                                <span>Mapear 20 cooperativas Planaltina/Formosa (nome, contato, tamanho)</span>
+                            </label>
+                            <label class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1">
+                                <span>Preparar deck cooperativas (15 slides)</span>
+                            </label>
+                            <label class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1">
+                                <span>Gravar vídeo demo 3 minutos (celular)</span>
+                            </label>
+                            <label class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1">
+                                <span>Criar materiais POS (Canva)</span>
+                            </label>
+                            <label class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1">
+                                <span>Listar 10 candidatos a embaixador</span>
+                            </label>
+                            <label class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1">
+                                <span>Configurar Facebook Business Manager</span>
+                            </label>
+                            <label class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1">
+                                <span>Abrir contas: Twilio, AWS, Stripe</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-yellow-50 rounded-xl p-6 border-l-4 border-yellow-500">
+                        <h3 class="text-2xl font-bold text-yellow-700 mb-4">⚡ Próximos 30 Dias</h3>
+                        <div class="space-y-2 text-gray-700">
+                            <label class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1">
+                                <span>Fechar 3 cooperativas piloto (100 agricultores cada)</span>
+                            </label>
+                            <label class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1">
+                                <span>Contratar 2 embaixadores</span>
+                            </label>
+                            <label class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1">
+                                <span>Lançar 6 vídeos YouTube</span>
+                            </label>
+                            <label class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1">
+                                <span>Onboarding primeira wave: 100 agricultores</span>
+                            </label>
+                            <label class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1">
+                                <span>Facebook Ads rodando: R$ 500/dia</span>
+                            </label>
+                            <label class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1">
+                                <span>Primeiros 50 usuários pagos</span>
+                            </label>
+                            <label class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1">
+                                <span>Setup analytics (Mixpanel/Amplitude)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-green-50 rounded-xl p-6 border-l-4 border-green-500">
+                        <h3 class="text-2xl font-bold text-green-700 mb-4">🎯 Próximos 90 Dias</h3>
+                        <div class="space-y-2 text-gray-700">
+                            <label class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1">
+                                <span>300 usuários ativos</span>
+                            </label>
+                            <label class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1">
+                                <span>R$ 15k MRR</span>
+                            </label>
+                            <label class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1">
+                                <span>NPS > 50</span>
+                            </label>
+                            <label class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1">
+                                <span>3 case studies prontos</span>
+                            </label>
+                            <label class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1">
+                                <span>Roadmap Fase 2 detalhado</span>
+                            </label>
+                            <label class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1">
+                                <span>Pitch deck Série A finalizado</span>
+                            </label>
+                            <label class="flex items-start gap-3">
+                                <input type="checkbox" class="mt-1">
+                                <span>Decisão GO para expansão regional</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="mb-16">
+            <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl shadow-2xl p-12 text-white text-center">
+                <h2 class="text-4xl font-bold mb-4">🚀 Pronto para Executar?</h2>
+                <p class="text-2xl mb-8 text-blue-100">Esta estratégia é viável, escalável e fundamentada</p>
+                <div class="flex gap-6 justify-center flex-wrap">
+                    <a href="business-plan.html" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors shadow-lg inline-block">
+                        📋 Ver Business Plan
+                    </a>
+                    <a href="pitch.html" class="bg-blue-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-400 transition-colors shadow-lg inline-block">
+                        📊 Ver Pitch Deck
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="mb-2">© 2025 AgroBR - Estratégia Go-to-Market Brasil</p>
+            <p class="text-sm">Vamos colocar um agrônomo no bolso de todo agricultor brasileiro! 🌾</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
